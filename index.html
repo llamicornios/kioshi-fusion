@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<script>document.documentElement.classList.add("js")</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kioshi Shimabuku — Dos mundos, un lenguaje</title>
+<meta name="description" content="Diseñador gráfico, toy designer y docente. Fusiono la iconografía andina con la estética pop japonesa: Llamicornios, Chullamicornio, Metalmorfosis y Link Island.">
+<meta property="og:title" content="Kioshi Shimabuku — Dos mundos, un lenguaje">
+<meta property="og:description" content="Identidad andina, estética pop japonesa y tecnología. Portafolio de Kioshi Shimabuku.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F6F2E9;
+  --ink:#15120F;
+  --ink-soft:#544C43;
+  --red:#B32B22;
+  --red-bright:#D8392C;
+  --yellow:#F5B302;
+  --line:#D9D0BF;
+  --display:"Fraunces",Georgia,serif;
+  --body:"Manrope",system-ui,sans-serif;
+  --pad:clamp(1.25rem,4vw,4rem);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:var(--body);font-size:1.0625rem;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--red);color:var(--paper)}
+.wrap{max-width:1240px;margin:0 auto;padding:0 var(--pad)}
+.section{padding:clamp(3rem,6.5vw,5.5rem) 0}
+.eyebrow{font-size:.72rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--red)}
+.n{font-family:var(--display);font-size:.95rem;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+
+/* ---------- HEADER ---------- */
+.site-head{position:sticky;top:0;z-index:60;background:rgba(246,242,233,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.site-head .wrap{display:flex;align-items:center;justify-content:space-between;height:66px;gap:1rem}
+.brand{font-family:var(--display);font-size:1.08rem}
+.brand i{font-style:normal;color:var(--red)}
+.nav{display:flex;gap:1.4rem;font-size:.82rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.nav a{border-bottom:2px solid transparent;padding:.2rem 0}
+.nav a:hover,.nav a:focus-visible{border-color:var(--red)}
+@media(max-width:760px){.nav{display:none}}
+.head-link{font-size:.8rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;border:2px solid var(--ink);padding:.45rem .8rem;transition:background .18s,color .18s}
+.head-link:hover{background:var(--ink);color:var(--paper)}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:center;padding:clamp(2.5rem,6vw,5rem) 0}
+.hero h1{
+  font-family:var(--display);font-weight:400;
+  font-size:clamp(2.9rem,7.6vw,6.2rem);line-height:.92;letter-spacing:-.035em;
+  margin:.9rem 0 0;
+}
+.hero h1 em{font-style:italic;color:var(--red)}
+.hero h1 .shift{display:inline-block;position:relative}
+.hero h1 .shift::after{
+  content:"";position:absolute;left:-.06em;right:-.06em;bottom:.06em;height:.16em;
+  background:var(--yellow);z-index:-1;
+}
+.lede{max-width:44ch;margin-top:1.5rem;color:var(--ink-soft);font-size:clamp(1rem,1.3vw,1.12rem)}
+.hero-tags{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1.5rem}
+.hero-tags span{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;border:1px solid var(--ink);padding:.3rem .55rem}
+.actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.4rem;font-weight:800;font-size:.82rem;text-transform:uppercase;letter-spacing:.05em;border:2px solid var(--ink);transition:transform .16s ease,background .16s,color .16s}
+.btn-solid{background:var(--ink);color:var(--paper)}
+.btn-solid:hover{background:var(--red);border-color:var(--red)}
+.btn-ghost:hover{background:var(--ink);color:var(--paper)}
+.btn:active{transform:translateY(1px)}
+.hero-figure{position:relative}
+.hero-figure::before{
+  content:"";position:absolute;inset:auto -18px -18px auto;width:62%;height:62%;
+  background:var(--red);z-index:0;
+}
+.hero-figure img{position:relative;z-index:1;aspect-ratio:4/5;object-fit:cover;border:2px solid var(--ink)}
+.badge{
+  position:absolute;z-index:2;top:-16px;left:-16px;background:var(--yellow);color:var(--ink);
+  font-weight:800;font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;
+  padding:.5rem .75rem;border:2px solid var(--ink);transform:rotate(-5deg);
+}
+@media(max-width:880px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-figure{order:-1;max-width:380px}
+  .hero-figure::before{inset:auto -10px -10px auto}
+  .badge{left:0}
+}
+
+/* ---------- MARQUEE-STRIP (estático) ---------- */
+.strip{background:var(--ink);color:var(--paper);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);padding:.7rem 0;overflow:hidden}
+.strip .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:center;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.16em}
+.strip span{display:inline-flex;align-items:center;gap:1.5rem}
+.strip span::after{content:"✦";color:var(--yellow)}
+
+/* ---------- SEC HEAD ---------- */
+.sec-head{display:flex;align-items:baseline;gap:1rem;margin-bottom:2.25rem;border-bottom:1px solid var(--line);padding-bottom:1rem}
+.sec-head h2{font-family:var(--display);font-weight:400;font-size:clamp(1.8rem,3.6vw,2.7rem);letter-spacing:-.025em;line-height:1}
+.sec-head .n{margin-left:auto}
+
+/* ---------- BENTO ---------- */
+.bento{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(.9rem,2vw,1.5rem)}
+.cell{position:relative;border:1px solid var(--line);background:#FBF8F1}
+.cell img{aspect-ratio:4/3;object-fit:cover;border-bottom:1px solid var(--line)}
+.cell-body{padding:1rem 1.05rem 1.25rem}
+.cell h3{font-family:var(--display);font-size:1.2rem;font-weight:700;letter-spacing:-.01em}
+.cell p{font-size:.9rem;color:var(--ink-soft);margin-top:.3rem}
+.cell-a{grid-column:span 2;grid-row:span 2;display:flex;flex-direction:column}
+.cell-a img{flex:1;aspect-ratio:auto;min-height:320px;object-fit:cover}
+.cell-a h3{font-size:1.6rem}
+.cell-b{grid-column:span 2}
+.cell-c,.cell-d{grid-column:span 1}
+.kicker{font-size:.68rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:.35rem}
+@media(max-width:900px){
+  .bento{grid-template-columns:1fr 1fr}
+  .cell-a{grid-column:span 2;grid-row:auto}
+  .cell-b,.cell-c,.cell-d{grid-column:span 1}
+}
+@media(max-width:560px){
+  .bento{grid-template-columns:1fr}
+  .cell,.cell-a,.cell-b,.cell-c,.cell-d{grid-column:span 1}
+}
+
+/* ---------- FEATURE ---------- */
+.band-red{background:var(--red);color:var(--paper);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.feature{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(1.5rem,4vw,3.25rem);align-items:center}
+.feature img{aspect-ratio:4/5;object-fit:cover;border:2px solid var(--paper)}
+.feature .eyebrow{color:var(--paper)}
+.feature h2{font-family:var(--display);font-weight:400;font-size:clamp(2rem,4.4vw,3.3rem);line-height:.98;letter-spacing:-.03em;margin:.9rem 0 0}
+.feature p{margin-top:1.1rem;color:#F3DAD5;max-width:44ch}
+.quote{
+  margin-top:1.5rem;background:var(--paper);color:var(--ink);padding:1rem 1.15rem;
+  font-family:var(--display);font-style:italic;font-size:1.05rem;border-left:4px solid var(--yellow);
+}
+@media(max-width:880px){.feature{grid-template-columns:1fr}.feature>*{min-width:0}}
+
+/* ---------- BRANDS ---------- */
+.brand-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));border-top:1px solid var(--line)}
+.brand-list div{padding:.9rem 1rem .9rem 0;border-bottom:1px solid var(--line);font-weight:700;font-size:.95rem}
+.brand-list div span{display:block;font-weight:500;font-size:.78rem;color:var(--ink-soft)}
+
+/* ---------- ROWS ---------- */
+.rows{border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:9rem 1fr auto;gap:1rem;align-items:baseline;padding:1rem 0;border-bottom:1px solid var(--line)}
+.row .when{font-size:.78rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--red)}
+.row .what{font-weight:700}
+.row .where{font-size:.82rem;color:var(--ink-soft);text-align:right}
+@media(max-width:720px){.row{grid-template-columns:1fr;gap:.15rem}.row .where{text-align:left}}
+
+/* ---------- ABOUT ---------- */
+.band-black{background:var(--ink);color:var(--paper);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.band-black .sec-head{border-color:#3A352F}
+.band-black .n{color:#A79C8C}
+.about{display:grid;grid-template-columns:.62fr 1.38fr;gap:clamp(1.5rem,4vw,3rem);align-items:start}
+.about img{aspect-ratio:4/5;object-fit:cover;border:2px solid #3A352F}
+.about p{color:#D6CCBE;margin-bottom:1rem;max-width:58ch}
+.about p strong{color:var(--paper)}
+.facts{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.25rem}
+.facts span{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;border:1px solid #4A443C;padding:.3rem .55rem;color:#E9E1D5}
+.band-black .btn-ghost{border-color:var(--paper);color:var(--paper)}
+.band-black .btn-ghost:hover{background:var(--paper);color:var(--ink)}
+@media(max-width:880px){.about{grid-template-columns:1fr}.about>*{min-width:0}.about img{max-width:min(360px,100%)}}
+
+/* ---------- CONTACT ---------- */
+.contact-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:2rem;align-items:end}
+.contact h2{font-family:var(--display);font-weight:400;font-size:clamp(2.2rem,6.4vw,4.6rem);line-height:.92;letter-spacing:-.035em}
+.contact h2 em{font-style:italic;color:var(--red)}
+.contact-links{display:grid;gap:.55rem}
+.contact-links a{display:flex;justify-content:space-between;gap:1rem;border:1px solid var(--ink);padding:.7rem .9rem;font-size:.88rem;font-weight:700;transition:background .16s,color .16s}
+.contact-links a:hover{background:var(--ink);color:var(--paper)}
+@media(max-width:820px){.contact-grid{grid-template-columns:1fr}}
+
+/* ---------- FOOTER ---------- */
+.footer{border-top:1px solid var(--line);padding:1.4rem 0 2.4rem}
+.footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.78rem;color:var(--ink-soft)}
+
+/* ---------- MOTION ---------- */
+html.js .reveal{opacity:0;transform:translateY(14px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
+.reveal.in{opacity:1;transform:none}
+html:not(.js) .reveal{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="#top">Kioshi <i>Shimabuku</i></a>
+    <nav class="nav" aria-label="Principal">
+      <a href="#trabajo">Trabajo</a>
+      <a href="#docencia">Docencia</a>
+      <a href="#sobre-mi">Sobre mí</a>
+    </nav>
+    <a class="head-link" href="mailto:kioshishimabuku@gmail.com">Hablemos</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Lima, Perú · Diseño, juego y tecnología</p>
+        <h1>Dos mundos,<br><em>un</em> <span class="shift">lenguaje</span></h1>
+        <p class="lede">
+          Peruano con raíces chinas y japonesas. Tomé la iconografía andina y la
+          estética pop japonesa, y las convertí en personajes, objetos y mundos
+          digitales que se reconocen al instante.
+        </p>
+        <div class="hero-tags">
+          <span>Diseño gráfico</span><span>Toy design</span><span>Docencia</span>
+        </div>
+        <div class="actions">
+          <a class="btn btn-solid" href="#trabajo">Ver trabajo</a>
+          <a class="btn btn-ghost" href="#contacto">Contacto</a>
+        </div>
+      </div>
+      <figure class="hero-figure reveal">
+        <img src="assets/retrato-960.webp" srcset="assets/retrato-640.webp 640w, assets/retrato-960.webp 960w" sizes="(max-width: 880px) 86vw, 40vw" alt="Kioshi Shimabuku con una pieza de Llamicornio" width="960" height="1200" fetchpriority="high" decoding="async">
+        <span class="badge">Llamicornios</span>
+      </figure>
+    </div>
+  </section>
+
+  <div class="strip">
+    <div class="wrap">
+      <span>Adidas Originals</span><span>Inca Kola</span><span>Jason Momoa</span><span>Pictoplasma BCN</span><span>+40 exposiciones</span>
+    </div>
+  </div>
+
+  <!-- TRABAJO -->
+  <section class="section" id="trabajo">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="n">01</span>
+        <h2>Trabajo seleccionado</h2>
+        <span class="n">2021 — 2026</span>
+      </div>
+      <div class="bento">
+        <article class="cell cell-a reveal">
+          <img src="assets/llamicornios-1024.webp" srcset="assets/llamicornios-640.webp 640w, assets/llamicornios-1024.webp 1024w" sizes="(max-width: 900px) 92vw, 46vw" alt="Cartera Chacana de la colección Llamicornios" width="1024" height="683" loading="lazy" decoding="async">
+          <div class="cell-body">
+            <p class="kicker">Personaje · Producto</p>
+            <h3>Llamicornios</h3>
+            <p>La llama andina se encuentra con el unicornio pop. Carteras, fósforos, juguetes y piezas de colección bajo un mismo personaje.</p>
+          </div>
+        </article>
+        <article class="cell cell-b reveal">
+          <img src="assets/chullamicornio-683.webp" srcset="assets/chullamicornio-640.webp 640w, assets/chullamicornio-683.webp 683w" sizes="(max-width: 900px) 45vw, 24vw" alt="Chullamicornio, chullo andino con forma de unicornio" width="683" height="1024" loading="lazy" decoding="async">
+          <div class="cell-body">
+            <p class="kicker">Pieza icónica</p>
+            <h3>Chullamicornio</h3>
+            <p>Chullo + Llamicornio. La pieza que usó Jason Momoa en la premiere de Minecraft en México.</p>
+          </div>
+        </article>
+        <article class="cell cell-c reveal">
+          <img src="assets/pixelbag-1024.webp" srcset="assets/pixelbag-640.webp 640w, assets/pixelbag-1024.webp 1024w" sizes="(max-width: 900px) 45vw, 24vw" alt="Bolso pixel heart impreso en 3D" width="1024" height="1365" loading="lazy" decoding="async">
+          <div class="cell-body">
+            <p class="kicker">Diseño de producto</p>
+            <h3>Objetos 3D</h3>
+            <p>Del boceto a la pieza física.</p>
+          </div>
+        </article>
+        <article class="cell cell-d reveal">
+          <img src="assets/fosforos-1024.webp" srcset="assets/fosforos-640.webp 640w, assets/fosforos-1024.webp 1024w" sizes="(max-width: 900px) 45vw, 24vw" alt="Fósforos Llamicornios" width="1024" height="1024" loading="lazy" decoding="async">
+          <div class="cell-body">
+            <p class="kicker">Papelería</p>
+            <h3>Objetos cotidianos</h3>
+            <p>Fósforos y empaques intervenidos.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURE -->
+  <section class="section band-red">
+    <div class="wrap feature">
+      <figure class="reveal">
+        <img src="assets/lookbook-1024.webp" srcset="assets/lookbook-640.webp 640w, assets/lookbook-1024.webp 1024w" sizes="(max-width: 880px) 90vw, 38vw" alt="Lookbook de moda con piezas de la colección" width="1024" height="1365" loading="lazy" decoding="async">
+      </figure>
+      <div class="reveal">
+        <p class="eyebrow">02 · El logro ancla</p>
+        <h2>Del taller de Lima a una premiere en México</h2>
+        <p>
+          Gracias a Phillip Chu Joy, el Chullamicornio llegó a la premiere de la
+          película de Minecraft y lo usó Jason Momoa. Una pieza peruana en el
+          centro de un estreno global.
+        </p>
+        <div class="quote">“Dos íconos culturales en una sola pieza: el chullo andino y el unicornio pop.”</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARCAS -->
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="n">03</span>
+        <h2>Marcas y colaboraciones</h2>
+      </div>
+      <div class="brand-list reveal">
+        <div>Adidas Originals<span>Tienda principal de Perú</span></div>
+        <div>Inca Kola<span>Imagen de marca</span></div>
+        <div>Samsung<span>Colaboración</span></div>
+        <div>Victorinox<span>Colaboración</span></div>
+        <div>Jockey Plaza<span>Intervención</span></div>
+        <div>C.C. Peruano Japonés<span>Exposición</span></div>
+        <div>BBVA<span>Proyecto corporativo</span></div>
+        <div>Converse<span>Colaboración</span></div>
+        <div>PromPerú<span>Campaña</span></div>
+        <div>Pictoplasma BCN<span>España</span></div>
+        <div>Art Chance<span>Bélgica</span></div>
+        <div>Ministerio de la Producción<span>Proyecto público</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOCENCIA -->
+  <section class="section" id="docencia">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="n">04</span>
+        <h2>Docencia y conferencias</h2>
+      </div>
+      <div class="rows reveal">
+        <div class="row"><span class="when">2026 — hoy</span><span class="what">Inteligencia Artificial Aplicada a la Moda</span><span class="where">Universidad del Pacífico</span></div>
+        <div class="row"><span class="when">2026 — hoy</span><span class="what">Herramientas Digitales para la Producción</span><span class="where">Chío Lecca</span></div>
+        <div class="row"><span class="when">2025 — hoy</span><span class="what">Diseño Digital, Branding y Marketing Digital</span><span class="where">SISE</span></div>
+        <div class="row"><span class="when">2016 — 2017</span><span class="what">Taller de Logotipo</span><span class="where">IPP</span></div>
+        <div class="row"><span class="when">2025</span><span class="what">Toys &amp; Wear</span><span class="where">SISE Fashion Week</span></div>
+        <div class="row"><span class="when">2014 · 2023</span><span class="what">Gestión cultural en Minecraft</span><span class="where">Pecha Kucha Night Lima</span></div>
+        <div class="row"><span class="when">2018</span><span class="what">Innovación y diseño de juguetes</span><span class="where">Miami Ad School</span></div>
+        <div class="row"><span class="when">2019</span><span class="what">Semana del Diseño Creativo</span><span class="where">UTP</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE MÍ -->
+  <section class="section band-black" id="sobre-mi">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="n">05</span>
+        <h2>Sobre mí</h2>
+      </div>
+      <div class="about">
+        <figure class="reveal">
+          <img src="assets/perfil-640.webp" srcset="assets/perfil-640.webp 640w, assets/perfil-1024.webp 1024w" sizes="(max-width: 880px) 80vw, 28vw" alt="Retrato de estudio de Kioshi Shimabuku" width="640" height="960" loading="lazy" decoding="async">
+        </figure>
+        <div class="reveal">
+          <p>
+            Diseñador gráfico, diseñador de juguetes, gestor cultural digital en
+            Minecraft, bailarín de locking y creador de los <strong>Llamicornios</strong>.
+            Mi trabajo parte de mi identidad: peruano con raíces chinas y japonesas.
+          </p>
+          <p>
+            Más de diez años integrando identidad cultural, diseño y tecnología.
+            <strong>Más de 40 exposiciones</strong> en Perú, Chile, México, España,
+            Bélgica, Japón y Argentina.
+          </p>
+          <p>
+            Latin American Design Awards 2015 · Nikon Photo Contest 2013 (3.er puesto
+            internacional) · Toulouse Lautrec Imagen 2011 (1.er puesto).
+          </p>
+          <div class="facts">
+            <span>+40 exposiciones</span><span>7 países</span><span>Docente desde 2016</span><span>Llamicornios</span>
+          </div>
+          <div class="actions">
+            <a class="btn btn-ghost" href="assets/CV_Kioshi_Shimabuku.pdf" download>Descargar CV</a>
+            <a class="btn btn-ghost" href="https://kioshishimabuku.notion.site/Kioshi-Shimabuku-Portafolio-0da488baa182460698ce13a888dee5ca" target="_blank" rel="noopener">Portafolio en Notion</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="section" id="contacto">
+    <div class="wrap contact-grid">
+      <div class="reveal">
+        <p class="eyebrow">06 · Contacto</p>
+        <h2 style="margin-top:.8rem">Hagamos algo<br>que no exista <em>todavía</em>.</h2>
+      </div>
+      <div class="contact-links reveal">
+        <a href="mailto:kioshishimabuku@gmail.com"><span>Correo</span><span>→</span></a>
+        <a href="https://wa.me/51992670102" target="_blank" rel="noopener"><span>WhatsApp</span><span>→</span></a>
+        <a href="https://instagram.com/kioshishimabuku" target="_blank" rel="noopener"><span>Instagram</span><span>→</span></a>
+        <a href="https://tiktok.com/@kioshishimabuku" target="_blank" rel="noopener"><span>TikTok</span><span>→</span></a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <span>© 2026 Kioshi Shimabuku</span>
+    <span>Lima, Perú</span>
+  </div>
+</footer>
+
+<script>
+  const els = document.querySelectorAll('.reveal');
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    els.forEach(el => el.classList.add('in'));
+  } else if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    els.forEach(el => io.observe(el));
+  } else {
+    els.forEach(el => el.classList.add('in'));
+  }
+</script>
+</body>
+</html>
